@@ -11,6 +11,7 @@ const Contacts = require('../models/contacts');
 router.get('/contacts',(req, res, next)=>{
     res.send("Getting contacts list");
     Contacts.find(function(err, contacts){
+        console.log(contacts);
          res.json(contacts);
 
     })
@@ -21,7 +22,11 @@ router.get('/contacts',(req, res, next)=>{
 
 //Adding contact into db
 router.post('/saveContact', (req, res, next)=>{
+
+
 //logic
+
+console.log(req);
 
 let newContact = new Contacts({
     first_name: req.body.first_name,
@@ -30,6 +35,7 @@ let newContact = new Contacts({
 });
 
 newContact.save((err, contact)=>{
+    console.log(contact);
 if(err){
 
     res.json({msg:"Failed to Save contact"});
