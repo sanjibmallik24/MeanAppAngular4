@@ -7,14 +7,24 @@ const Contacts = require('../models/contacts');
 
 
 
+
+
 //Retriving contacts list
 router.get('/contacts',(req, res, next)=>{
-    res.send("Getting contacts list");
-    Contacts.find(function(err, contacts){
-        console.log(contacts);
-         res.json(contacts);
+    let conList = new Contacts(
+        {    _id: "1232",
+            first_name: "Sanjib",
+            last_name: "Mallik",
+            phone: "7259550530"
+        }
+        );
+    res.send(conList);
+    // Contacts.find(function(contacts,err){
+    //     console.log(contacts);
+    //      res.json(contacts);
+    // })
 
-    })
+
 
 });
 

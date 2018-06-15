@@ -18,8 +18,11 @@ export class ContactsComponent implements OnInit {
   constructor(private contactService: ContactsService) { }
 
   ngOnInit() {
-    this.contactService.getContacts().subscribe( contacts=>{
-      console.log(contacts);
+    this.contactService.getContacts()
+    .subscribe( data => {
+      
+      this.contact = data._body;
+      console.log(this.contact);
     })
   }
 
